@@ -1,4 +1,4 @@
-﻿@model asp_mvc.Models.Movie
+﻿@model IList<asp_mvc.Models.Customer>
 
 
 @{
@@ -7,3 +7,20 @@
 }
 
 <h2>Customers</h2>
+
+
+<table class="table table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Membershipe type</th>
+        <th>Details</th>
+    </tr>
+    @foreach (var customer in Model)
+    {
+        <tr>
+            <td>@customer.Name</td>
+            <td>@customer.MembershipType.Name</td>
+            <td><a href="@Url.Action("Details", "Customers", new { id = customer.Id })">Details</a></td>
+        </tr>
+    }
+</table>

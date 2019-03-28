@@ -8,9 +8,22 @@
 
 <h2>Movies</h2>
 
-<ul>
+<table class="table table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Genre</th>
+        <th>Released year</th>
+        <th>Number available</th>
+        <th>Details</th>
+    </tr>
     @foreach (var movie in Model)
     {
-        <li>@movie.Name</li>
+        <tr>
+            <td>@movie.Name</td>
+            <td>@movie.Genre.Name</td>
+            <td>@movie.ReleaseDate</td>
+            <td>@movie.NumberAvailable</td>
+            <td><a href="@Url.Action("Details", "Movies", new { id = movie.Id })">Details</a></td>
+         </tr> 
     }
-</ul>
+</table>

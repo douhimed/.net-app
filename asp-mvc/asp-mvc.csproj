@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -126,12 +132,31 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903281340489_InitialModels.cs" />
+    <Compile Include="Migrations\201903281340489_InitialModels.Designer.cs">
+      <DependentUpon>201903281340489_InitialModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903281355364_addingModels.cs" />
+    <Compile Include="Migrations\201903281355364_addingModels.Designer.cs">
+      <DependentUpon>201903281355364_addingModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903281404597_PopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\201903281404597_PopulateMembershipTypes.Designer.cs">
+      <DependentUpon>201903281404597_PopulateMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
+    <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\Rental.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +197,9 @@
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
+    <Content Include="Views\Books\Index.cshtml" />
+    <Content Include="Views\Books\BookDetails.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -188,6 +216,17 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201903281340489_InitialModels.resx">
+      <DependentUpon>201903281340489_InitialModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903281355364_addingModels.resx">
+      <DependentUpon>201903281355364_addingModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903281404597_PopulateMembershipTypes.resx">
+      <DependentUpon>201903281404597_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

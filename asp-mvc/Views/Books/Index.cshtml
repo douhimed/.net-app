@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.SectionTitle</h2>
+
+<table class="table table-striped">
+    <tr><th>Title</th><th>Description</th><th>Price</th><th>Details</th></tr>
+    @foreach (var book in Model)
+    {
+        <tr>
+            <td>@book.Title</td>
+            <td>@book.Description</td>
+            <td>@book.Price</td>
+            <td>
+                <a href="@Url.Action("Details", "Books", new { isbn = book.ISBN })">Plus</a>
+            </td>
+
+        </tr>
+    }
+</table>
+
+<h2>Variables</h2>
+@{
+    var mql = "Qualité du Logiciel";
+    var annee = "2018-2019";
+}
+
+<h3>Master : @mql</h3>
+<br />
+<h3>Année universitaure : @annee</h3>
+
+<h2>Boucles</h2>
+
+@{
+    string[] members = { "Mohammed", "Salma", "Hicham" };
+}
+<ul>
+    @foreach (var member in members)
+    {
+        <li>@member</li>
+    }
+</ul>
+<ul>
+    @{
+        var i = 0;
+        while (i < members.Length)
+        {
+            <li>@members[i]</li>
+            i++;
+
+        }
+    }
+</ul>
+
+<h2>Instructions de controle</h2>
+
+@{
+    var message = "Good Morning";
+    if (DateTime.Now.Hour > 12)
+    {
+        message = "Good Evening";
+    }
+}
+
+<h3>@message</h3>
+
+
+<h2>Objects</h2>
+<table border="1">
+    <tr>
+        <th width="100px">Name</th>
+        <td width="100px">Value</td>
+    </tr>
+    <tr>
+        <td>Day</td>
+        <td>@DateTime.Now.Day</td>
+    </tr>
+    <tr>
+        <td>Hour</td>
+        <td>@DateTime.Now.Hour</td>
+    </tr>
+</table>
+
+

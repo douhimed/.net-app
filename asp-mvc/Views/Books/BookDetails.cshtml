@@ -1,0 +1,13 @@
+﻿@using asp_mvc.Models
+@model asp_mvc.Models.Book
+@{
+    ViewBag.Title = "BookDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Book Details</h2>
+
+ISBN : @ViewBag.Book.ISBN <br/>
+Title : @ViewBag.Book.Title <br/>
+Published year : @ViewBag.Book.YearPublished
+
