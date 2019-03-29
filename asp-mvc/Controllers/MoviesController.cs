@@ -37,9 +37,14 @@ namespace asp_mvc.Controllers
             return View(movie);
         }
 
-        private void Add()
+        public ActionResult New()
         {
+            return View("Form");
+        }
 
+        public ActionResult Edit()
+        {
+            return View("Form");
         }
     }
 }

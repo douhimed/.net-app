@@ -15,7 +15,7 @@
             <td>@book.Description</td>
             <td>@book.Price</td>
             <td>
-                <a href="@Url.Action("Details", "Books", new { isbn = book.ISBN })">Plus</a>
+                @Html.ActionLink("Details", "Details", "Books", new { isbn = book.ISBN }, null)
             </td>
 
         </tr>

@@ -14,13 +14,15 @@
         <th>Name</th>
         <th>Membershipe type</th>
         <th>Details</th>
+        <th>Update</th>
     </tr>
     @foreach (var customer in Model)
     {
-        <tr>
-            <td>@customer.Name</td>
-            <td>@customer.MembershipType.Name</td>
-            <td><a href="@Url.Action("Details", "Customers", new { id = customer.Id })">Details</a></td>
-        </tr>
+    <tr>
+        <td>@customer.Name</td>
+        <td>@customer.MembershipType.Name</td>
+        <td>@Html.ActionLink("Details", "Details", "Customers", new { id = customer.Id }, null)</td>
+        <td>@Html.ActionLink("Edit", "Edit", "Customers", new { id = customer.Id }, null)</td>
+    </tr>
     }
 </table>
